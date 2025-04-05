@@ -9,6 +9,8 @@ OR add directly to manifest
 ```
 "unityblocks.arc": "https://github.com/vstrucovski/UnityBlocks.Arc.git"
 ```
+and also requires UnityBlocks.Core
+
 ---
 
 ## ARC

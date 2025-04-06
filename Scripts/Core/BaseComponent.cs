@@ -26,7 +26,6 @@ namespace UnityBlocks.Arc.Core
         {
             if (TryGetComponent(out BaseActor actorBase))
             {
-                Debug.Log("remove actor");
                 actorBase.RemoveFromList(this);
             }
         }

@@ -3,8 +3,7 @@
     "rootNamespace": "UnityBlocks.Arc",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:6b0fbfb848c43f04580b16eceba2e578",
-        "GUID:ec8b40a638238f144a0f143806224dcc"
+        "GUID:6b0fbfb848c43f04580b16eceba2e578"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

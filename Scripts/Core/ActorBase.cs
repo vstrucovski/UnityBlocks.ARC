@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NaughtyAttributes;
 using UnityEngine;
 
 namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
@@ -11,7 +10,7 @@ namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
         private readonly ComponentsDictionary _componentsDictionary = new();
         private bool _isDirtySort = true;
         private List<BaseComponent> _sortedComponents = new();
-        
+
         public void AddToList(BaseComponent value)
         {
             componentsList.Add(value);
@@ -102,14 +101,14 @@ namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
             return true;
         }
 
-        [Button]
+        [ContextMenu("Sort Components")]
         private void SortComponents()
         {
             _sortedComponents = _componentsDictionary.Values.OrderBy(c => c.Priority).ToList();
             _isDirtySort = false;
         }
 
-        [Button]
+        [ContextMenu("Find Components")]
         private void FillListEditor()
         {
             componentsList.Clear();

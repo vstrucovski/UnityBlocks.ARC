@@ -1,7 +1,7 @@
 {
   "name": "unityblocks.arc",
   "displayName": "UnityBlocks.Arc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "unity": "2022.2",
   "description": "dev module",
   "dependencies": {

@@ -1,4 +1,4 @@
-﻿namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
+﻿namespace UnityBlocks.Arc.Core
 {
     public interface IBehavior
     {

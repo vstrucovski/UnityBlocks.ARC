@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
+namespace UnityBlocks.Arc.Core
 {
     [Serializable]
     public abstract class BaseComponent : MonoBehaviour
     {
         [field: SerializeField] public int Priority { get; set; }
-        public ActorBase Actor { get; private set; }
+        public BaseActor BaseActor { get; private set; }
 
-        public void Register(ActorBase value)
+        public void Register(BaseActor value)
         {
-            Actor = value;
+            BaseActor = value;
         }
 
         private void Reset()
         {
-            if (TryGetComponent(out ActorBase actorBase))
+            if (TryGetComponent(out BaseActor actorBase))
             {
                 actorBase.AddToList(this);
             }
@@ -24,7 +24,7 @@ namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
 
         private void OnDestroy()
         {
-            if (TryGetComponent(out ActorBase actorBase))
+            if (TryGetComponent(out BaseActor actorBase))
             {
                 Debug.Log("remove actor");
                 actorBase.RemoveFromList(this);

@@ -2,9 +2,9 @@
 using System.Linq;
 using UnityEngine;
 
-namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
+namespace UnityBlocks.Arc.Core
 {
-    public abstract class ActorBase : MonoBehaviour
+    public abstract class BaseActor : MonoBehaviour
     {
         [SerializeField] private List<BaseComponent> componentsList = new();
         private readonly ComponentsDictionary _componentsDictionary = new();
@@ -101,6 +101,13 @@ namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
             return true;
         }
 
+        public void RemoveFromList(BaseComponent baseComponent)
+        {
+            //TODO
+            // var index = componentsList.IndexOf(baseComponent);
+            // componentsList.RemoveAt(index);
+        }
+
         [ContextMenu("Sort Components")]
         private void SortComponents()
         {
@@ -120,12 +127,6 @@ namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
             }
 
             MarkDirty();
-        }
-
-        public void RemoveFromList(BaseComponent baseComponent)
-        {
-            // var index = componentsList.IndexOf(baseComponent);
-            // componentsList.RemoveAt(index);
         }
     }
 }

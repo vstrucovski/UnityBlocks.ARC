@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnityBlocks.Arc.Modules.UnityBlocks_ARC.Scripts.Core
+namespace UnityBlocks.Arc.Core
 {
     public class ComponentsDictionary : Dictionary<Type, BaseComponent>
     {

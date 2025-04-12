@@ -7,11 +7,11 @@ namespace UnityBlocks.Arc.Core
     public abstract class BaseComponent : MonoBehaviour
     {
         [field: SerializeField] public int Priority { get; set; }
-        public BaseActor BaseActor { get; private set; }
+        public BaseActor Actor { get; private set; }
 
         public void Register(BaseActor value)
         {
-            BaseActor = value;
+            Actor = value;
         }
 
         private void Reset()
@@ -39,15 +39,23 @@ namespace UnityBlocks.Arc.Core
         }
 
         //block usage of native calls from Unity
-        private void Start()
+        public void Start()
         {
         }
 
-        private void Awake()
+        public void Awake()
         {
         }
 
-        private void Update()
+        public void Update()
+        {
+        }
+
+        public void FixedUpdate()
+        {
+        }
+
+        public void LateUpdate()
         {
         }
     }

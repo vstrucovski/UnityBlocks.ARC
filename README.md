@@ -21,5 +21,5 @@ prototype of architecture to call scripts in waterfall sequence.
 - **C** | component
 
 ###  Why?
-- remove independence of components
-- actor gets components fast 
+- remove independence of unity components
+- actor gets components faster

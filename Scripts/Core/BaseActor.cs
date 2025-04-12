@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace UnityBlocks.Arc.Core
         private bool _isDirtySort = true;
         private List<BaseComponent> _sortedComponents = new();
 
+        public event Action<BaseComponent> OnAdded;
+
         public void AddToList(BaseComponent value)
         {
             componentsList.Add(value);
@@ -20,6 +23,17 @@ namespace UnityBlocks.Arc.Core
         {
             InitDictionary();
             CallAwakeInPriorityOrder();
+        }
+
+        private void Update()
+        {
+            if (_isDirtySort)
+                SortComponents();
+
+            foreach (var item in _sortedComponents)
+            {
+                item.Tick();
+            }
         }
 
         private void InitDictionary()
@@ -65,22 +79,12 @@ namespace UnityBlocks.Arc.Core
 
         private void MarkDirty() => _isDirtySort = true;
 
-        private void Update()
-        {
-            if (_isDirtySort)
-                SortComponents();
-
-            foreach (var item in _sortedComponents)
-            {
-                item.Tick();
-            }
-        }
-
         public void Add<T>(T component) where T : BaseComponent
         {
             component.Register(this);
             _componentsDictionary[component.GetType()] = component;
             MarkDirty();
+            OnAdded?.Invoke(component);
         }
 
         public T Get<T>() where T : BaseComponent
@@ -103,9 +107,8 @@ namespace UnityBlocks.Arc.Core
 
         public void RemoveFromList(BaseComponent baseComponent)
         {
-            //TODO
-            // var index = componentsList.IndexOf(baseComponent);
-            // componentsList.RemoveAt(index);
+            var index = componentsList.IndexOf(baseComponent);
+            componentsList.RemoveAt(index);
         }
 
         [ContextMenu("Sort Components")]

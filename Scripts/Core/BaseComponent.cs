@@ -39,24 +39,24 @@ namespace UnityBlocks.Arc.Core
         }
 
         //block usage of native calls from Unity
-        public void Start()
-        {
-        }
-
-        public void Awake()
-        {
-        }
-
-        public void Update()
-        {
-        }
-
-        public void FixedUpdate()
-        {
-        }
-
-        public void LateUpdate()
-        {
-        }
+        // public void Start()
+        // {
+        // }
+        //
+        // public void Awake()
+        // {
+        // }
+        //
+        // public void Update()
+        // {
+        // }
+        //
+        // public void FixedUpdate()
+        // {
+        // }
+        //
+        // public void LateUpdate()
+        // {
+        // }
     }
 }

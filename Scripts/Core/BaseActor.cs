@@ -9,20 +9,25 @@ namespace UnityBlocks.Arc.Core
     public abstract class BaseActor : MonoBehaviour
     {
         [SerializeField] private List<BaseComponent> componentsList = new();
+        [SerializeField] private bool isSelfInit = true;
         [SerializeField] private bool isSelfUpdate = true;
         private readonly ComponentsDictionary _componentsDictionary = new();
         private bool _isDirtySort = true;
         private List<BaseComponent> _sortedComponents = new();
 
         public event Action<BaseComponent> OnAdded;
+
         public event Action<BaseComponent> OnRemoved;
 
-        public void AddToList(BaseComponent value)
+        private void Awake()
         {
-            componentsList.Add(value);
+            if (isSelfInit)
+            {
+                Init();
+            }
         }
 
-        private void Awake()
+        public void Init()
         {
             InitDictionary();
             CallAwakeInPriorityOrder();
@@ -30,6 +35,11 @@ namespace UnityBlocks.Arc.Core
             {
                 StartCoroutine(SelfUpdate());
             }
+        }
+
+        public void AddToList(BaseComponent value)
+        {
+            componentsList.Add(value);
         }
 
         private IEnumerator SelfUpdate()
